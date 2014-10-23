@@ -7,7 +7,7 @@ import os
 
 _DATE_FORMATTER = '%d.%m.%Y'
 
-DOMAIN = '@mail.ru'
+DOMAIN = '@bk.ru'
 USERNAME = 'tech-testing-ha2-7'
 PASSWORD = os.environ.get('TTHA2PASSWORD')
 
