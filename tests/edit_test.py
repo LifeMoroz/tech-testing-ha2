@@ -33,9 +33,9 @@ class AdEditTestCase(BasePage):
 
     @classmethod
     def tearDownClass(cls):
-        super(AdEditTestCase, cls).tearDownClass()
         cls.campaign.open()
         cls.campaign.campaigns_list.get_campaign(CAMPAIGN_NAME).delete()
+        super(AdEditTestCase, cls).tearDownClass()
 
     def test_campaign_name_correct(self):
         """
