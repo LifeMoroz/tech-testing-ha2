@@ -14,8 +14,7 @@ def login(driver):
 
 
 class BasePage(unittest.TestCase):
-    @classmethod
-    def setUpClass(cls):
+    def setUp(cls):
         browser = os.environ.get('TTHA2BROWSER', 'CHROME')
 
         cls.driver = Remote(
@@ -32,6 +31,5 @@ class BasePage(unittest.TestCase):
         base_settings.set_product_type(PRODUCT_TYPE)
         base_settings.set_pad_type(PAD_TYPE)
 
-    @classmethod
-    def tearDownClass(cls):
+    def tearDown(cls):
         cls.driver.quit()
