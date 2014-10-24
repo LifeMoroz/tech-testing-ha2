@@ -9,9 +9,8 @@ from tests.config import *
 class AdCreationTestCase(BasePage):
     ad_page = None
 
-    @classmethod
-    def setUpClass(cls):
-        super(AdCreationTestCase, cls).setUpClass()
+    def setUp(cls):
+        super(AdCreationTestCase, cls).setUp()
         ad_page = CreateAdPage(cls.driver)
         cls._fill_basic_settings(ad_page)
         ad_page.banner_form.fill_banner(**BANNER_DATA)
