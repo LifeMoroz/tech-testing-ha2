@@ -7,9 +7,8 @@ from tests.pages.page_object import CreateAdPage, CampaignsPage
 
 
 class AdEditTestCase(BasePage):
-    @classmethod
-    def setUpClass(cls):
-        super(AdEditTestCase, cls).setUpClass()
+    def setUp(cls):
+        super(AdEditTestCase, cls).setUp()
         ad_page = CreateAdPage(cls.driver)
         cls._fill_basic_settings(ad_page)
 
@@ -31,11 +30,10 @@ class AdEditTestCase(BasePage):
         cls.campaign = CampaignsPage(cls.driver)
         cls.editor = cls.campaign.campaigns_list.get_campaign(CAMPAIGN_NAME).edit()
 
-    @classmethod
-    def tearDownClass(cls):
+    def tearDown(cls):
         cls.campaign.open()
         cls.campaign.campaigns_list.get_campaign(CAMPAIGN_NAME).delete()
-        super(AdEditTestCase, cls).tearDownClass()
+        super(AdEditTestCase, cls).tearDown()
 
     def test_campaign_name_correct(self):
         """
